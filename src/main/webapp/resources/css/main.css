@@ -1,0 +1,27 @@
+body {
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+}
+img {
+	width: 1024px;
+	height: 300px;
+}
+#topNav {
+	background-color: #7AC1FF;
+}
+#navbar {
+	text-align: center;
+}
+#navbar a {
+	padding: 0 0 20px 20px;
+}
+aside {
+	float: right;
+}
+
+/* #content { */
+/* 	margin-left: auto; */
+/* 	margin-right: auto; */
+/* 	width: 50%; */
+/* } */
