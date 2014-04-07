@@ -35,6 +35,7 @@ public class HomeController {
 		
 		LOG.debug("Admit hit");
 		
+		
 		model.addAttribute("eventModel", new EventModel());
 		
 		return "admin";
