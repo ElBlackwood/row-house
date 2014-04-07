@@ -2,8 +2,7 @@
 <div id="header">
 
 <div id="imageSlider">
-	<img alt="" src="<c:url value="/resources/img/horizon.jpg" />"/>
-<%-- 	<%=request.getContextPath()%> --%>
+	<img alt="" src="<c:url value="resources/img/horizon.jpg" />"/>
 </div>
 
 <div id="navbar">

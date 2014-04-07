@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Row House Enterprises!</title>
 
-<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+<link href="<c:url value="resources/css/main.css" />" rel="stylesheet">
 </head>
 <body>
 
@@ -41,5 +41,5 @@
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-<script src="<c:url value="/resources/js/main.js" />" ></script>
+<script src="<c:url value="resources/js/main.js" />" ></script>
 </html>
