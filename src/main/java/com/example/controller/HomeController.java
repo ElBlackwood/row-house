@@ -50,7 +50,7 @@ public class HomeController {
 		
 		model.addAttribute("events", eventModelService.listEvents());
 		
-		return "redirect:/people/home";
+		return "redirect:/home";
 		
 	}
 }
