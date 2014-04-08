@@ -1,8 +1,10 @@
 package com.example.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class EventModel {
@@ -13,6 +15,10 @@ public class EventModel {
 	
 	private String name;
 	private String location;
+	private String date;
+	
+	@Lob
+	@Column(name = "DESCRIPTION", length =512)
 	private String description;
 	
 	public EventModel() {}
@@ -51,6 +57,14 @@ public class EventModel {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	

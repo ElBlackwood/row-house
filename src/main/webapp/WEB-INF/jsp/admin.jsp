@@ -2,37 +2,33 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Row House Enterprises!</title>
 
-<link href="<c:url value="resources/css/main.css" />" rel="stylesheet">
-</head>
-<body>
-
+<jsp:include page="fragments/pageHead.jsp" />
 <jsp:include page="fragments/topNav.jsp" />
 <jsp:include page="fragments/header.jsp" />
 
 <div id="content" >
 
-<form:form method="POST" action="${pageContext.servletContext.contextPath}/addEvent" modelAttribute="eventModel">
+<form:form method="POST" action="${pageContext.servletContext.contextPath}/addEvent" modelAttribute="eventModel" class="form-horizontal">
 <h6>New Event: </h6>
 	<table>
 		<tr>
-			<td>Name:</td>
-			<td><form:input path="name"/></td>
+			<td class="control-label">Name:</td>
+			<td class="controls"><form:input path="name"/></td>
 		</tr>
 		<tr>
-			<td>Location</td>
-			<td><form:input path="location"/></td>
+			<td class="control-label">Location</td>
+			<td class="controls"><form:input path="location"/></td>
 		</tr>
 		<tr>
-			<td>Description</td>
-			<td><form:textarea path="description" rows="5" cols="30"/></td>
+			<td class="control-label">Date</td>
+			<td class="controls"><form:input path="date"/></td>
 		</tr>
-		<tr><td><input type="submit" value="Save Event" /></td></tr>
+		<tr>
+			<td class="control-label">Description</td>
+			<td class="controls"><form:textarea path="description" rows="5" cols="30"/></td>
+		</tr>
+		<tr><td class="btn"><button type="submit">Save event</button></td></tr>
 	</table>
 </form:form>	
 
