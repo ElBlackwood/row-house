@@ -3,6 +3,5 @@
     pageEncoding="ISO-8859-1"%>
     
 <jsp:include page="fragments/pageHead.jsp" />
-<jsp:include page="fragments/topNav.jsp" />
 
 <h2 class="text-error">:( There has been a problem. We're very sorry.</h2>
