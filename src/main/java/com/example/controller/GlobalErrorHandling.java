@@ -15,6 +15,8 @@ public class GlobalErrorHandling {
 		
 		LOG.error("Error got all the way here?!", e);
 		
+		System.out.println("ERROR");
+		System.out.println(e);
 		return "error";
 	}
 }

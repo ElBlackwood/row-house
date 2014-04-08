@@ -14,19 +14,19 @@
 				<div class="panel-body">
 					<ul class="list-group">
 					
-<%-- 						<c:forEach items="${events }" var="eventItem"> --%>
+						<c:forEach items="${events }" var="eventItem">
 						
-<!-- 							<li class="list-group-item"> -->
-<%-- 								<img class="hidden-phone" alt="some" src="<c:url value="resources/img/stache face smaller.png" />"> --%>
-<!-- 								<span class="glyphicon glyphicon-music"></span> -->
-<%-- 							 	<h4><c:out value="${eventItem.name}" /></h4> --%>
-<%-- 								<p class="desc"><c:out value="${eventItem.description}" /></p> --%>
-<%-- 								<span class="label label-info"><c:out value="${eventItem.date}" /></span> --%>
-<%-- 								<span class="label label-info"><c:out value="${eventItem.location}" /></span> --%>
+							<li class="list-group-item">
+								<img class="hidden-phone" alt="some" src="<c:url value="resources/img/stache face smaller.png" />">
+								<span class="glyphicon glyphicon-music"></span>
+							 	<h4><c:out value="${eventItem.name}" /></h4>
+								<p class="desc"><c:out value="${eventItem.description}" /></p>
+								<span class="label label-info"><c:out value="${eventItem.date}" /></span>
+								<span class="label label-info"><c:out value="${eventItem.location}" /></span>
 								
-<!-- 							</li> -->
+							</li>
 							
-<%-- 						</c:forEach> --%>
+						</c:forEach>
 					</ul>
 
 				</div>
