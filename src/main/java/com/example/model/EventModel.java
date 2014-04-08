@@ -17,8 +17,7 @@ public class EventModel {
 	private String location;
 	private String date;
 	
-	@Lob
-	@Column(name = "DESCRIPTION", length =512)
+
 	private String description;
 	
 	public EventModel() {}
