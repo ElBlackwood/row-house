@@ -9,7 +9,7 @@
         <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
       </ol>
       <div class="carousel-inner">
-        <div class="item">
+        <div class="item active">
           <img alt="" src="<c:url value="resources/img/home1.jpg" />"/>
           <div class="container">
             <div class="carousel-caption">
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="item active">
+        <div class="item">
           <img alt="" src="<c:url value="resources/img/home3.jpg" />"/>
           <div class="container">
             <div class="carousel-caption">
