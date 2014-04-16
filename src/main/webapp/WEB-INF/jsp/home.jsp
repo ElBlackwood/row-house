@@ -17,7 +17,7 @@
 						<c:forEach items="${events }" var="eventItem">
 						
 							<li class="list-group-item">
-								<img class="hidden-phone" alt="some" src="<c:url value="resources/img/stache face smaller.png" />">
+								<img alt="some" src="<c:url value="resources/img/stache face smaller.png" />">
 								<span class="glyphicon glyphicon-music"></span>
 							 	<h4><c:out value="${eventItem.name}" /></h4>
 								<p class="desc"><c:out value="${eventItem.description}" /></p>
@@ -32,7 +32,7 @@
 				</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-3 visible-lg">
 		<div class="sidebar-module sidebar-module-inset">
 			<h4 class="list-group-item-heading">Anouncement ipsum</h4> 
 			<p class="list-group-item-text">Super important anouncement text.Super important anouncement text.Super important anouncement text.</p>
@@ -40,6 +40,5 @@
 	</div>
 </div>
 </div>
-
 
 <jsp:include page="fragments/pageFoot.jsp" />
