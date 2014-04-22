@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+
 <jsp:include page="fragments/pageHead.jsp" />
 <jsp:include page="fragments/topNav.jsp" />
 <jsp:include page="fragments/header.jsp" />
@@ -12,12 +13,22 @@
 	<div class="col-lg-9">
 		<div class="panel panel-defualt">
 				<div class="panel-body">
+				<c:if test="${not empty deleting}">
+					<h3 class="text-danger"><strong>Choose event to delete</strong></h3>
+				</c:if>
+				
 					<ul class="list-group">
 					
 						<c:forEach items="${events }" var="eventItem">
 						
 							<li class="list-group-item">
-								<img alt="some" src="<c:url value="resources/img/stache face smaller.png" />">
+								<sec:authorize access="isAuthenticated()">
+									<c:if test="${not empty deleting}">
+										<a href="/admin/deleteEvent/${eventItem.id}" class="btn btn-danger close pull-right">X Delete</a>
+									</c:if>
+								</sec:authorize>
+								
+								<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
 								<span class="glyphicon glyphicon-music"></span>
 							 	<h4><c:out value="${eventItem.name}" /></h4>
 								<p class="desc"><c:out value="${eventItem.description}" /></p>

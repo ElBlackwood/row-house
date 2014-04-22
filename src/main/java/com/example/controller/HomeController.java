@@ -34,12 +34,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/admin")
-	public String adminPage(Model model) {
+	public String adminPage() {
 		
 		LOG.debug("Admit hit");
-		
-		
-		model.addAttribute("eventModel", new EventModel());
 		
 		return "admin";
 	}

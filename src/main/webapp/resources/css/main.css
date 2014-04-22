@@ -4,9 +4,9 @@ body {
 	margin-right: auto;
 	margin-top: 0;
 }
-#imageSlider img{
+.rotato-img{
 	width: 100%;
-	height: 300px;
+	max-height: 315px;
 }
 /* #content .list-group { */
 /* 	width: 50%; */

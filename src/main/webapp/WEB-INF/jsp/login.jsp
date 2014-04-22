@@ -17,14 +17,15 @@
         <br>
 		<div id="output"></div>
         <div class="avatar"></div>
+      </form>
+      
 		<c:if test="${not empty error}">
 			<p class="error bg-warning text-danger text-center">${error}</p>
 		</c:if>
 		<c:if test="${not empty msg}">
 			<p class="msg bg-info text-center">${msg}</p>
+			<p><a href="/home" class="btn btn-lg btn-default btn-block" >Home</a><p>
 		</c:if>
-      </form>
-	
 	
 </div>
 
