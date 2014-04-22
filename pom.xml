@@ -138,10 +138,10 @@
                     </execution>
                 </executions>
             </plugin>
-        	<plugin>
-        		<groupId>org.springframework.security</groupId>
-        		<artifactId>spring*</artifactId>
-        	</plugin>
+<!--         	<plugin> -->
+<!--         		<groupId>org.springframework.security</groupId> -->
+<!--         		<artifactId>spring*</artifactId> -->
+<!--         	</plugin> -->
         </plugins>
     </build>
 </project>
