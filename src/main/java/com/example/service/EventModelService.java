@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,10 +32,18 @@ public class EventModelService {
 	
 	@Transactional
 	public List<EventModel> listEvents() {
-		CriteriaQuery<EventModel> e = em.getCriteriaBuilder().createQuery(EventModel.class);
-		e.from(EventModel.class);
+		Query e = em.createQuery("select e from EventModel e where e.guestEvent = false");
 		
-		return em.createQuery(e).getResultList();
+		List<EventModel> events = e.getResultList();
+		return events;
+	}
+	
+	@Transactional
+	public List<EventModel> listGuestEvents() {
+		Query e = em.createQuery("select e from EventModel e where e.guestEvent = true");//TODO check approved
+		
+		List<EventModel> events = e.getResultList();
+		return events;
 	}
 	
 	@Transactional

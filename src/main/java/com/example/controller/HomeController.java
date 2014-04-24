@@ -29,6 +29,7 @@ public class HomeController {
 		LOG.debug("Homepage hit");
 		
 		model.addAttribute("events", eventModelService.listEvents());
+		model.addAttribute("guestEvents", eventModelService.listGuestEvents());
 		
 		return "home";
 	}
@@ -57,18 +58,7 @@ public class HomeController {
 		return "contact";
 	}
 	
-	@RequestMapping("/addEvent")
-	public String addEvent(Model model, @ModelAttribute EventModel event) {
-		
-		LOG.debug("Adding event: {}", event.getName());
-		
-		eventModelService.addEvent(event);
-		
-		model.addAttribute("events", eventModelService.listEvents());
-		
-		return "redirect:/home";
-		
-	}
+
 	//Spring Security see this :
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(
@@ -87,5 +77,38 @@ public class HomeController {
  
 		return model;
  
+	}
+	
+	@RequestMapping("/addEvent")
+	public String addEvent(Model model, @ModelAttribute EventModel event) {
+		
+		LOG.debug("Adding guest event: {}", event.getName());
+		
+		event.setApproved(false);
+		event.setGuestEvent(true);
+		
+		eventModelService.addEvent(event);
+		
+		model.addAttribute("events", eventModelService.listEvents());
+		
+		return "redirect:/home";
+		
+	}
+	
+	
+	/**
+	 * Displays create event page
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/guestSubmit")
+	public String createEvent(Model model) {
+		LOG.debug("Creating guest event");
+		
+		
+		model.addAttribute("guest", true);
+		model.addAttribute("eventModel", new EventModel());
+		
+		return "createEvent";
 	}
 }

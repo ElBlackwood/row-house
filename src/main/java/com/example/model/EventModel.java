@@ -1,12 +1,15 @@
 package com.example.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "EventModel")
 public class EventModel {
-
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -14,7 +17,13 @@ public class EventModel {
 	private String name;
 	private String location;
 	private String date;
+	private String email;
 	
+	@Column(name = "guestEvent")
+	private boolean guestEvent;
+	
+	@Column(name = "approved")
+	public boolean approved = false;
 
 	private String description;
 	
@@ -63,6 +72,31 @@ public class EventModel {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isGuestEvent() {
+		return guestEvent;
+	}
+
+	public void setGuestEvent(boolean guestEvent) {
+		this.guestEvent = guestEvent;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+	
 	
 	
 }

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,14 +23,37 @@ public class AdminController {
 	private EventModelService eventModelService;
 	
 
+	/**
+	 * Displays create event page
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/createEvent")
 	public String createEvent(Model model) {
-		
 		LOG.debug("Creating event");
 		
 		model.addAttribute("eventModel", new EventModel());
 		
 		return "createEvent";
+	}
+	
+	/**
+	 * Creates the event
+	 * @param model
+	 * @param event
+	 * @return
+	 */
+	@RequestMapping("/addEvent")
+	public String addEvent(Model model, @ModelAttribute EventModel event) {
+		
+		LOG.debug("Adding event: {}", event.getName());
+		
+		eventModelService.addEvent(event);
+		
+		model.addAttribute("events", eventModelService.listEvents());
+		
+		return "redirect:/home";
+		
 	}
 	
 	@RequestMapping("/deleteEvent")

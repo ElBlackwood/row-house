@@ -31,7 +31,29 @@
     </bean>
 
     <beans profile="default">
-        <jdbc:embedded-database id="dataSource"/>        
+<!--         <jdbc:embedded-database id="dataSource"/>         -->
+<!--         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> -->
+<!--             <property name="dataSource" ref="dataSource"/> -->
+<!--             <property name="jpaVendorAdapter"> -->
+<!--                 <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/> -->
+<!--             </property> -->
+<!--             <property name="jpaProperties"> -->
+<!--                 <props> -->
+<!--                     <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop> -->
+<!--                     <prop key="hibernate.hbm2ddl.auto">create</prop> -->
+<!--                 </props> -->
+<!--             </property> -->
+<!--         </bean> -->
+<!--         <bean class="java.net.URI" id="dbUrl"> -->
+<!--             <constructor-arg value="postgres://postgres:admin@localhost:5432/postgres"/> -->
+<!--         </bean> -->
+
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+            <property name="url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="username" value="postgres"/>
+            <property name="password" value="admin"/>
+        </bean>
+        
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
             <property name="dataSource" ref="dataSource"/>
             <property name="jpaVendorAdapter">
@@ -39,8 +61,10 @@
             </property>
             <property name="jpaProperties">
                 <props>
-                    <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
-                    <prop key="hibernate.hbm2ddl.auto">create</prop>
+                    <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                    <prop key="hibernate.show_sql">true</prop>
+                    <!-- change this to 'verify' before running as a production app -->
+                    <prop key="hibernate.hbm2ddl.auto">update</prop>
                 </props>
             </property>
         </bean>
