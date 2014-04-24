@@ -97,14 +97,13 @@ public class HomeController {
 	
 	
 	/**
-	 * Displays create event page
+	 * Displays create event page for guests
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/guestSubmit")
 	public String createEvent(Model model) {
 		LOG.debug("Creating guest event");
-		
 		
 		model.addAttribute("guest", true);
 		model.addAttribute("eventModel", new EventModel());
