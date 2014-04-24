@@ -23,7 +23,7 @@
     </servlet>
     
 	<servlet>
-		<servlet-name>Home JSP</servlet-name>
+		<servlet-name>HomeJSP</servlet-name>
 		<jsp-file>/WEB-INF/jsp/home.jsp</jsp-file>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
