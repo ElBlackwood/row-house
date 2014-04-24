@@ -78,7 +78,7 @@
 	<div class="col-lg-3 visible-lg">
 		<div class="sidebar-module sidebar-module-inset">
 			<h4 class="list-group-item-heading">Anouncement ipsum</h4> 
-			<p class="list-group-item-text">Needs padding. Super important anouncement text.Super important anouncement text.Super important anouncement text.</p>
+			<p class="list-group-item-text">Needs padding.. Super important anouncement text.Super important anouncement text.Super important anouncement text.</p>
 		</div>
 		<div class="sidebar-module sidebar-module-inset">
 			<h4 class="list-group-item-heading">Think you got a good event?</h4> 
