@@ -14,7 +14,7 @@
 		<div class="panel panel-defualt">
 				<div class="panel-body">
 				<c:if test="${not empty deleting}">
-					<h3 class="text-danger"><strong>Choose event to delete</strong></h3>
+					<h3 class="text-danger"><strong>Choose event to disable/delete</strong></h3>
 				</c:if>
 				
 					<ul class="list-group">
@@ -24,10 +24,17 @@
 							<li class="list-group-item">
 								<sec:authorize access="isAuthenticated()">
 									<c:if test="${not empty deleting}">
-										<a href="/admin/deleteEvent/${eventItem.id}" class="btn btn-danger close pull-right">X Delete</a>
+										<a href="/admin/deleteEvent/${eventItem.id}" class="btn btn-danger close pull-right">Delete</a>
+										<c:choose>
+											<c:when test="${eventItem.approved}">
+												<a href="/admin/disableEvent/${eventItem.id}" class="btn btn-warning close pull-right">Disable</a>
+											</c:when>
+											<c:otherwise>
+												<a href="/admin/enableEvent/${eventItem.id}" class="btn btn-success close pull-right">Enable</a>
+											</c:otherwise>
+										</c:choose>
 									</c:if>
 								</sec:authorize>
-								
 								<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
 								<span class="glyphicon glyphicon-music"></span>
 							 	<h4><c:out value="${eventItem.name}" /></h4>
@@ -46,7 +53,7 @@
 		<div class="panel panel-defualt">
 				<div class="panel-body">
 				<c:if test="${not empty deleting}">
-					<h3 class="text-danger"><strong>Choose event to delete</strong></h3>
+					<h3 class="text-danger"><strong>Choose guest event to disable/delete</strong></h3>
 				</c:if>
 					<ul class="list-group">
 					
@@ -55,7 +62,15 @@
 							<li class="list-group-item">
 								<sec:authorize access="isAuthenticated()">
 									<c:if test="${not empty deleting}">
-										<a href="/admin/deleteEvent/${guestEventItem.id}" class="btn btn-danger close pull-right">X Delete</a>
+										<a href="/admin/deleteEvent/${guestEventItem.id}" class="btn btn-danger close pull-right">Delete</a>
+										<c:choose>
+											<c:when test="${guestEventItem.approved}">
+												<a href="/admin/disableEvent/${guestEventItem.id}" class="btn btn-warning close pull-right">Disable</a>
+											</c:when>
+											<c:otherwise>
+												<a href="/admin/enableEvent/${guestEventItem.id}" class="btn btn-success close pull-right">Enable</a>
+											</c:otherwise>
+										</c:choose>
 									</c:if>
 								</sec:authorize>
 								

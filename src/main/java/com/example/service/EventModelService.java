@@ -5,10 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.Metamodel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,16 +27,24 @@ public class EventModelService {
 	}
 	
 	@Transactional
-	public List<EventModel> listEvents() {
-		Query e = em.createQuery("select e from EventModel e where e.guestEvent = false");
+	public List<EventModel> listEvents(boolean all) {
+		String query = "select e from EventModel e where e.guestEvent = false order by id";
 		
-		List<EventModel> events = e.getResultList();
-		return events;
+		return queryEvents(all, query);
 	}
 	
 	@Transactional
-	public List<EventModel> listGuestEvents() {
-		Query e = em.createQuery("select e from EventModel e where e.guestEvent = true");//TODO check approved
+	public List<EventModel> listGuestEvents(boolean all) {
+		String query = "select e from EventModel e where e.guestEvent = true order by id";
+		
+		return queryEvents(all, query);
+	}
+	
+	private List<EventModel> queryEvents(boolean all, String query) {
+		if (!all) {
+			query += " and e.approved = true";
+		}
+		Query e = em.createQuery(query);
 		
 		List<EventModel> events = e.getResultList();
 		return events;
@@ -53,5 +57,20 @@ public class EventModelService {
 		if (event != null) {
 			em.remove(event);
 		}
+	}
+
+	@Transactional
+	public void disableEvent(int id) {
+		EventModel event = em.find(EventModel.class, id);
+		event.setApproved(false);
+		em.merge(event);
+	}
+	
+	@Transactional
+	public void enableEvent(int id) {
+		EventModel event = em.find(EventModel.class, id);
+		
+		event.setApproved(true);
+		em.merge(event);
 	}
 }

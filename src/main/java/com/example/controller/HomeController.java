@@ -28,8 +28,8 @@ public class HomeController {
 
 		LOG.debug("Homepage hit");
 		
-		model.addAttribute("events", eventModelService.listEvents());
-		model.addAttribute("guestEvents", eventModelService.listGuestEvents());
+		model.addAttribute("events", eventModelService.listEvents(false));
+		model.addAttribute("guestEvents", eventModelService.listGuestEvents(false));
 		
 		return "home";
 	}
@@ -89,7 +89,8 @@ public class HomeController {
 		
 		eventModelService.addEvent(event);
 		
-		model.addAttribute("events", eventModelService.listEvents());
+		model.addAttribute("events", eventModelService.listEvents(false));
+		model.addAttribute("guestEvents", eventModelService.listGuestEvents(false));
 		
 		return "redirect:/home";
 		

@@ -23,7 +23,7 @@ public class EventModel {
 	private boolean guestEvent;
 	
 	@Column(name = "approved")
-	public boolean approved = false;
+	public boolean approved;
 
 	private String description;
 	
