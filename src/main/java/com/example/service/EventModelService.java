@@ -28,21 +28,21 @@ public class EventModelService {
 	
 	@Transactional
 	public List<EventModel> listEvents(boolean all) {
-		String query = "select e from EventModel e where e.guestEvent = false order by id";
+		String query = "select e from EventModel e where e.guestEvent = false";
 		
 		return queryEvents(all, query);
 	}
 	
 	@Transactional
 	public List<EventModel> listGuestEvents(boolean all) {
-		String query = "select e from EventModel e where e.guestEvent = true order by id";
+		String query = "select e from EventModel e where e.guestEvent = true";
 		
 		return queryEvents(all, query);
 	}
 	
 	private List<EventModel> queryEvents(boolean all, String query) {
 		if (!all) {
-			query += " and e.approved = true";
+			query += " and e.approved = true order by e.id";
 		}
 		Query e = em.createQuery(query);
 		
