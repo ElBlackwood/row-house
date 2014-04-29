@@ -73,4 +73,25 @@ public class EventModelService {
 		event.setApproved(true);
 		em.merge(event);
 	}
+
+	@Transactional
+	public EventModel getEvent(int id) {
+		EventModel event = em.find(EventModel.class, id);
+		
+		return event;
+		
+	}
+
+	@Transactional
+	public void updateEvent(EventModel event, int id) {
+		EventModel eventToUpdate = em.find(EventModel.class, id);
+		eventToUpdate.setDate(event.getDate());
+		eventToUpdate.setDescription(event.getDescription());
+		eventToUpdate.setEmail(event.getEmail());
+		eventToUpdate.setLocation(event.getLocation());
+		eventToUpdate.setName(event.getName());
+		em.merge(eventToUpdate);
+		
+		
+	}
 }

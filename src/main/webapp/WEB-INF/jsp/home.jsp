@@ -24,24 +24,29 @@
 							<li class="list-group-item">
 								<sec:authorize access="isAuthenticated()">
 									<c:if test="${not empty deleting}">
-										<a href="/admin/deleteEvent/${eventItem.id}" class="btn btn-danger close pull-right">Delete</a>
-										<c:choose>
-											<c:when test="${eventItem.approved}">
-												<a href="/admin/disableEvent/${eventItem.id}" class="btn btn-warning close pull-right">Disable</a>
-											</c:when>
-											<c:otherwise>
-												<a href="/admin/enableEvent/${eventItem.id}" class="btn btn-success close pull-right">Enable</a>
-											</c:otherwise>
-										</c:choose>
+									<div class="pull-right">
+											<c:choose>
+												<c:when test="${eventItem.approved}">
+													<a href="/admin/disableEvent/${eventItem.id}" class="btn btn-warning">Disable</a>
+												</c:when>
+												<c:otherwise>
+													<a href="/admin/enableEvent/${eventItem.id}" class="btn btn-success">Enable </a>
+												</c:otherwise>
+											</c:choose>
+											<a href="/admin/editEvent/${eventItem.id}" class="btn btn-info">Edit</a>
+											<a href="/admin/deleteEvent/${eventItem.id}" class="btn btn-danger">Delete</a>
+										</div>
 									</c:if>
 								</sec:authorize>
+								
 								<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
 								<span class="glyphicon glyphicon-music"></span>
 							 	<h4><c:out value="${eventItem.name}" /></h4>
 								<p class="desc"><c:out value="${eventItem.description}" /></p>
-								<span class="label label-info"><c:out value="${eventItem.date}" /></span>
-								<span class="label label-info"><c:out value="${eventItem.location}" /></span>
-								
+								<div class="labels">
+									<span class="label label-info"><c:out value="${eventItem.date}" /></span>
+									<span class="label label-info"><c:out value="${eventItem.location}" /></span>
+								</div>
 							</li>
 							
 						</c:forEach>
@@ -58,31 +63,35 @@
 					<ul class="list-group">
 					
 						<c:forEach items="${guestEvents}" var="guestEventItem">
-						
 							<li class="list-group-item">
+								<div class="img-house" style="height: inherit">
+									<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
+								</div>
 								<sec:authorize access="isAuthenticated()">
 									<c:if test="${not empty deleting}">
-										<a href="/admin/deleteEvent/${guestEventItem.id}" class="btn btn-danger close pull-right">Delete</a>
-										<c:choose>
-											<c:when test="${guestEventItem.approved}">
-												<a href="/admin/disableEvent/${guestEventItem.id}" class="btn btn-warning close pull-right">Disable</a>
-											</c:when>
-											<c:otherwise>
-												<a href="/admin/enableEvent/${guestEventItem.id}" class="btn btn-success close pull-right">Enable</a>
-											</c:otherwise>
-										</c:choose>
+										<div class="pull-right">
+											<c:choose>
+												<c:when test="${guestEventItem.approved}">
+													<a href="/admin/disableEvent/${guestEventItem.id}" class="btn btn-warning">Disable</a>
+												</c:when>
+												<c:otherwise>
+													<a href="/admin/enableEvent/${guestEventItem.id}" class="btn btn-success">Enable</a>
+												</c:otherwise>
+											</c:choose>
+											<a href="/admin/editEvent/${guestEventItem.id}" class="btn btn-info">Edit</a>
+											<a href="/admin/deleteEvent/${guestEventItem.id}" class="btn btn-danger">Delete</a>
+										</div>
 									</c:if>
 								</sec:authorize>
-								
-								<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
 								<span class="glyphicon glyphicon-music"></span>
 								<span class="glyphicon glyphicon-user">  Guest event</span>
 							 	<h4><c:out value="${guestEventItem.name}" /></h4>
 								<p class="desc"><c:out value="${guestEventItem.description}" /></p>
-								<span class="label label-info"><c:out value="${guestEventItem.date}" /></span>
-								<span class="label label-info"><c:out value="${guestEventItem.location}" /></span>
-								<span class="label label-info"><c:out value="${guestEventItem.email}" /></span>
-								
+								<div class="labels">
+									<span class="label label-info"><c:out value="${guestEventItem.date}" /></span>
+									<span class="label label-info"><c:out value="${guestEventItem.location}" /></span>
+									<span class="label label-info"><c:out value="${guestEventItem.email}" /></span>
+								</div>
 							</li>
 							
 						</c:forEach>
@@ -91,14 +100,15 @@
 		</div>
 	</div>
 	<div class="col-lg-3 visible-lg">
-		<div class="sidebar-module sidebar-module-inset">
+		<div class="sidebar-module sidebar-module-inset sidebar-announce-item">
 			<h4 class="list-group-item-heading">Anouncement ipsum</h4> 
 			<p class="list-group-item-text">Needs padding..... Super important anouncement text.Super important anouncement text.Super important anouncement text.</p>
 		</div>
-		<div class="sidebar-module sidebar-module-inset">
+		<div class="sidebar-module sidebar-module-inset sidebar-announce-item">
 			<h4 class="list-group-item-heading">Think you got a good event?</h4> 
 			<p class="list-group-item-text">Submit it it here to have it reviewed for approval. If your event is all in order we'll display on the homepage beneath our own. </p>
-			<p class="list-group-item-text"><a href="/guestSubmit" ><button type="button" class="btn btn-default">Submit event</button></a></p>
+			<br>
+			<a href="/guestSubmit" ><button type="button" class="btn btn-default">Submit event</button></a>
 		</div>
 	</div>
 </div>

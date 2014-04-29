@@ -72,3 +72,8 @@ body {
 .row-padded {
 	padding-bottom: 15px;
 }
+
+.sidebar-announce-item {
+	padding-top: 20px;
+}
+

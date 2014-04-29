@@ -37,6 +37,43 @@ public class AdminController {
 	}
 	
 	/**
+	 * Displays create event page
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/editEvent/{id}")
+	public String editEvent(Model model, @PathVariable("id") int id) {
+		LOG.debug("Editting event");
+		
+		try {
+			
+			EventModel event = eventModelService.getEvent(id);
+			model.addAttribute("event", event);
+			
+		} catch (IndexOutOfBoundsException e) {
+			LOG.warn("Tried to get event with index {}. Found no such event.", id, e);
+			model.addAttribute("msg", "Could not find that event");
+
+		}
+		
+		return "editEvent";
+	}
+	
+	/**
+	 * Displays create event page
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/updateEvent/{id}")
+	public String updateEvent(Model model, @ModelAttribute EventModel event, @PathVariable("id") int id) {
+		LOG.debug("Updating event");
+		
+		eventModelService.updateEvent(event, id);
+		
+		return "redirect:/admin/deleteEvent";
+	}
+	
+	/**
 	 * Creates the event
 	 * @param model
 	 * @param event
