@@ -1,9 +1,9 @@
-package com.example.service;
+package com.event.service;
 
 
 import java.util.List;
 
-import com.example.model.Person;
+import com.event.model.Person;
 
 public interface PersonService {
     

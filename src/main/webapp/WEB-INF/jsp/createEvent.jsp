@@ -21,32 +21,32 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Name</label>
 			<div class="col-sm-10">
-				<form:input class="form-control" path="name"/>
+				<form:input class="form-control" path="name" max="255"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Location</label>
 			<div class="col-sm-10">
-				<form:input class="form-control" path="location"/>
+				<form:input class="form-control" path="location" max="255"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Date</label>
 			<div class="col-sm-10">
-				<form:input class="form-control" path="date"/>
+				<form:input class="form-control" path="date" type="date" max="255"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Description</label>
 			<div class="col-sm-10">
-				<form:textarea class="form-control" path="description" rows="3"/>
+				<form:textarea class="form-control" path="description" rows="3" type="text" maxLength="512"/>
 			</div>
 		</div>
 		<c:if test="${guest eq true}">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Your email</label>
 				<div class="col-sm-10">
-					<form:input class="form-control" path="email" type="email" placeholder="Email address" />
+					<form:input class="form-control" path="email" type="email" placeholder="Email address" max="255"/>
 				</div>
 			</div>
 		</c:if>
@@ -59,8 +59,8 @@
 
 </div>
 
-
+<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-<script src="<c:url value="resources/js/main.js" />" ></script>
+<script src="<c:url value="/resources/js/main.js" />" ></script>
 </body>
 </html>

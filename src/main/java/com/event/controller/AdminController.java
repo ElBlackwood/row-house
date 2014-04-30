@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.event.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.model.EventModel;
-import com.example.service.EventModelService;
+import com.event.model.EventModel;
+import com.event.service.EventModelService;
 
 @Controller
 @RequestMapping("/admin")

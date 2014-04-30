@@ -1,4 +1,4 @@
-package com.example.service;
+package com.event.service;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.model.EventModel;
+import com.event.model.EventModel;
 
 @Service
 public class EventModelService {

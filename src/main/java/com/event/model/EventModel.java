@@ -1,4 +1,4 @@
-package com.example.model;
+package com.event.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +19,11 @@ public class EventModel {
 	private String date;
 	private String email;
 	
-	@Column(name = "guestEvent")
 	private boolean guestEvent;
 	
-	@Column(name = "approved")
 	public boolean approved;
 
+	@Column(name="description", length=512)
 	private String description;
 	
 	public EventModel() {}
