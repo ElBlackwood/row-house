@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.event.model.EventModel;
 import com.event.service.EventModelService;
@@ -80,7 +81,7 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping("/addEvent")
-	public String addEvent(Model model, @ModelAttribute EventModel event) {
+	public String addEvent(Model model, @ModelAttribute EventModel event, @RequestParam("previewFlag") String flag) {
 		
 		LOG.debug("Adding event: {}", event.getName());
 		

@@ -1,10 +1,16 @@
 package com.event.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "EventModel")
@@ -18,6 +24,8 @@ public class EventModel {
 	private String location;
 	private String date;
 	private String email;
+	
+	private String imageUrl;
 	
 	private boolean guestEvent;
 	
@@ -95,7 +103,13 @@ public class EventModel {
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
-	
-	
-	
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 }

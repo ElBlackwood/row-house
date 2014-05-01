@@ -90,6 +90,7 @@ public class EventModelService {
 		eventToUpdate.setEmail(event.getEmail());
 		eventToUpdate.setLocation(event.getLocation());
 		eventToUpdate.setName(event.getName());
+		eventToUpdate.setImageUrl(event.getImageUrl());
 		em.merge(eventToUpdate);
 		
 		

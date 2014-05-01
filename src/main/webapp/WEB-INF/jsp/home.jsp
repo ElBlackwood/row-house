@@ -8,7 +8,16 @@
 <jsp:include page="fragments/header.jsp" />
 
 <div class="container" >
-
+<div class="row">
+	<div class="col-lg-9">
+		<c:if test="${not empty msg}">
+			<div class="alert alert-warning">
+			<a class="close" data-dismiss="alert">&times;</a>			
+			<c:out value="${msg}" />
+			</div>
+		</c:if>
+	</div>
+</div>
 <div class="row">
 	<div class="col-lg-9">
 		<div class="panel panel-defualt">
@@ -19,7 +28,7 @@
 				
 					<ul class="list-group">
 					
-						<c:forEach items="${events }" var="eventItem">
+						<c:forEach items="${events}" var="eventItem">
 						
 							<li class="list-group-item">
 								<sec:authorize access="isAuthenticated()">
@@ -38,11 +47,19 @@
 										</div>
 									</c:if>
 								</sec:authorize>
-								
-								<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
+			
+								<c:choose>
+									<c:when test="${eventItem.imageUrl != null}">
+										<img alt="some" src="<c:url value="${eventItem.imageUrl}" />">
+									</c:when>
+									<c:otherwise>
+										<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
+									</c:otherwise>
+								</c:choose>								
 								<span class="glyphicon glyphicon-music"></span>
-							 	<h4><c:out value="${eventItem.name}" /></h4>
+							 	<h4><a href="/singleEvent/${eventItem.id}"><c:out value="${eventItem.name}" /></a></h4>
 								<p class="desc"><c:out value="${eventItem.description}" /></p>
+								<br>
 								<div class="labels">
 									<span class="label label-info"><c:out value="${eventItem.date}" /></span>
 									<span class="label label-info"><c:out value="${eventItem.location}" /></span>
@@ -64,9 +81,6 @@
 					
 						<c:forEach items="${guestEvents}" var="guestEventItem">
 							<li class="list-group-item">
-								<div class="img-house" style="height: inherit">
-									<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
-								</div>
 								<sec:authorize access="isAuthenticated()">
 									<c:if test="${not empty deleting}">
 										<div class="pull-right">
@@ -83,10 +97,19 @@
 										</div>
 									</c:if>
 								</sec:authorize>
+								<c:choose>
+									<c:when test="${guestEventItem.imageUrl != null}">
+										<img alt="some" src="<c:url value="${eventItem.imageUrl}" />">
+									</c:when>
+									<c:otherwise>
+										<img alt="some" src="<c:url value="/resources/img/stache face smaller.png" />">
+									</c:otherwise>
+								</c:choose>	
 								<span class="glyphicon glyphicon-music"></span>
 								<span class="glyphicon glyphicon-user">  Guest event</span>
-							 	<h4><c:out value="${guestEventItem.name}" /></h4>
+							 	<h4><a href="/singleEvent/${eventItem.id}"><c:out value="${guestEventItem.name}" /></a></h4>
 								<p class="desc"><c:out value="${guestEventItem.description}" /></p>
+								<br>
 								<div class="labels">
 									<span class="label label-info"><c:out value="${guestEventItem.date}" /></span>
 									<span class="label label-info"><c:out value="${guestEventItem.location}" /></span>

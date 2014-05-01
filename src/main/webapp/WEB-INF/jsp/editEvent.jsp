@@ -32,8 +32,8 @@
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Date</label>
-			<div class="col-sm-10">
-				<form:input class="form-control" path="date"/>
+			<div class="col-sm-2">
+				<form:input class="form-control" path="date" type="date" max="255"/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -51,6 +51,12 @@
 			</div>
 		</c:if>
 		<div class="form-group">
+   			<label class="col-sm-2 control-label">Image url</label>
+   			<div class="col-sm-10">
+     				<form:input class="form-control" path="imageUrl" type="url" max="255"/>
+     		</div>
+  		</div>
+		<div class="form-group">
     		<div class="col-sm-offset-2 col-sm-10">
       			<button type="submit" class="btn btn-default">Update event</button>
     		</div>
@@ -59,8 +65,4 @@
 
 </div>
 
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-<script src="<c:url value="/resources/js/main.js" />" ></script>
-</body>
-</html>
+<jsp:include page="fragments/pageFoot.jsp" />

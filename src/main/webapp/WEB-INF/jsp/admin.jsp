@@ -14,8 +14,6 @@
 	<a href="/home" class="btn btn-default btn-lg btn-block">Home</a>
 	<a href="/admin/createEvent" class="btn btn-primary btn-lg btn-block">Create Event</a>
 	<a href="/admin/deleteEvent" class="btn btn-primary btn-lg btn-block">Event audit</a>
-	<a class="btn btn-primary btn-lg btn-block">Large button</a>
-	
 	<a href="javascript:formSubmit()" class="btn btn-default btn-lg btn-block">Logout</a>
 </div>
 

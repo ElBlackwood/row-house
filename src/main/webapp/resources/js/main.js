@@ -20,3 +20,12 @@ function spinCarousel() {
 		  interval: 6000
 	  });
 }
+
+$('#previewButton').on('click', function() {
+	$("#previewFlag").attr('value', 'true');
+	$('form').submit();
+});
+$('#submitButton').on('click', function() {
+	$("#previewFlag").attr('value', 'false');
+	$('form').submit();
+});

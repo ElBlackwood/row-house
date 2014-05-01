@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Date</label>
-			<div class="col-sm-10">
+			<div class="col-sm-2">
 				<form:input class="form-control" path="date" type="date" max="255"/>
 			</div>
 		</div>
@@ -51,16 +51,20 @@
 			</div>
 		</c:if>
 		<div class="form-group">
+   			<label class="col-sm-2 control-label">Image url</label>
+   			<div class="col-sm-10">
+     				<form:input class="form-control" path="imageUrl" type="url" max="255"/>
+     		</div>
+  		</div>
+		<div class="form-group">
     		<div class="col-sm-offset-2 col-sm-10">
-      			<button type="submit" class="btn btn-default">Create event</button>
+      			<a id="submitButton" class="btn btn-default">Create event</a>
+      			<a id="previewButton" class="btn btn-default">Preview event</a>
     		</div>
   		</div>
+  		<input type="hidden" id="previewFlag" name="previewFlag" value="false"/>
 </form:form>	
 
 </div>
 
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-<script src="<c:url value="/resources/js/main.js" />" ></script>
-</body>
-</html>
+<jsp:include page="fragments/pageFoot.jsp" />
