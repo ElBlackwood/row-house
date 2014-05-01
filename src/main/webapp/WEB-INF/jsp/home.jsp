@@ -107,7 +107,7 @@
 								</c:choose>	
 								<span class="glyphicon glyphicon-music"></span>
 								<span class="glyphicon glyphicon-user">  Guest event</span>
-							 	<h4><a href="/singleEvent/${eventItem.id}"><c:out value="${guestEventItem.name}" /></a></h4>
+							 	<h4><a href="/singleEvent/${guestEventItem.id}"><c:out value="${guestEventItem.name}" /></a></h4>
 								<p class="desc"><c:out value="${guestEventItem.description}" /></p>
 								<br>
 								<div class="labels">
